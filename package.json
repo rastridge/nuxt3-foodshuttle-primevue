@@ -1,0 +1,32 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "nuxt": "^3.2.3"
+  },
+  "dependencies": {
+    "@formkit/nuxt": "^1.0.0-beta.15",
+    "@formkit/themes": "^1.0.0-beta.15",
+    "@pinia/nuxt": "^0.4.7",
+    "@vueup/vue-quill": "^1.1.0",
+    "bcrypt": "^5.1.0",
+    "dayjs": "^1.11.7",
+    "formidable": "v3",
+    "mysql-promise": "^5.0.0",
+    "mysql2": "^3.1.2",
+    "primeflex": "^3.3.0",
+    "primeicons": "^6.0.1",
+    "primevue": "^3.23.0",
+    "quill-image-uploader": "^1.2.4",
+    "sass": "^1.58.3",
+    "sharp": "^0.31.3",
+    "sweetalert2": "^11.7.3",
+    "twilio": "^4.8.0"
+  }
+}

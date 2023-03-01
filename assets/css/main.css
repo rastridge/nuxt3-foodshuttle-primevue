@@ -1,0 +1,68 @@
+@import '~/node_modules/primeflex/primeflex.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
+/*
+See https://fonts.google.com/specimen/Roboto
+*/
+.body_background_color {
+	background-color: rgb(183, 134, 134);
+	font-size: 16px;
+	font-family: 'Roboto', sans-serif;
+}
+.content {
+	font-weight: 400;
+	width: 90%;
+	margin: 0 auto;
+	padding: 3rem;
+	margin-top: 1rem;
+	border: solid thin rgb(0, 0, 0);
+	border-radius: 20px;
+	background-color: rgba(255, 255, 255, 0.3);
+}
+.editor {
+	width: 100%;
+	background-color: rgba(255, 255, 255, 0.5);
+}
+.error {
+	color: red;
+}
+.form-box {
+	background-color: rgba(255, 255, 255, 0.2);
+	margin: 0 auto;
+	padding: 2rem;
+	border: thin black solid;
+	width: 30rem;
+	justify-content: left;
+	align-items: left;
+	text-align: left;
+}
+
+.formkit-inner {
+	background-color: rgba(255, 255, 255, 0.5);
+}
+[data-invalid] .formkit-inner {
+	border-color: red;
+	box-shadow: 0 0 0 1px red;
+}
+
+[data-complete] .formkit-inner {
+	border-color: red;
+	box-shadow: 0 0 0 1px green;
+}
+[data-complete] .formkit-inner::after {
+	display: block;
+	padding: 0.5em;
+}
+
+@media screen and (max-width: 640px) {
+	.loginbox {
+		width: 100%;
+	}
+	.form-box {
+		width: 100%;
+	}
+	.content {
+		width: 100%;
+		padding: 0.5rem;
+		border-radius: 0;
+	}
+}

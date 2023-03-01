@@ -1,0 +1,46 @@
+<script setup>
+	import { setErrors } from '@formkit/vue'
+	import '@formkit/themes/genesis'
+	import { useAuthStore } from '~~/stores/authStore'
+	const auth = useAuthStore()
+
+	definePageMeta({ layout: 'admin' })
+
+	const upload = async (data) => {
+		const formdata = new FormData()
+		console.log('data.name = ', data.name)
+
+		formdata.append('name', data.name)
+		data.file.forEach((fileItem) => {
+			formdata.append('file', fileItem.file)
+		})
+		console.log('formdata = ', formdata)
+
+		/* 		//
+		// upload action
+		//
+		const res = await fetch('https://media.my-test-site.net/images/upload', {
+			method: 'POST',
+			body: body,
+			// headers: {
+			// 	authorization: auth.user.token,
+			// },
+		})
+		const image = await res.json()
+		return image.url */
+	}
+</script>
+
+<template>
+	<!-- <FormKit id="photoForm" type="form" @submit="submitHandler"> -->
+	<FormKit id="photoForm" type="form" @submit="upload">
+		<FormKit
+			type="file"
+			label="Upload an image"
+			name="file"
+			accept=".jpeg,.jpg,.png,.pdf"
+			validation="required"
+			multiple="false"
+		/>
+	</FormKit>
+</template>
