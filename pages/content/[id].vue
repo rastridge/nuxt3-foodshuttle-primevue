@@ -1,6 +1,7 @@
 <template>
 	<div>
 		<!-- <div class="card"> -->
+
 		<Common-header :title="content_data.content_name" />
 		<span v-html="content_data.content_body"></span>
 	</div>
