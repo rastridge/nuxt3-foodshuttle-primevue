@@ -23,8 +23,13 @@
 	// import BlotFormatter from 'quill-blot-formatter'
 	import { useAuthStore } from '~~/stores/authStore'
 	const auth = useAuthStore()
-	const { CLOUD_NAME, CLOUD_API_KEY, CLOUD_API_SECRET, CLOUD_UPLOAD_PRESET } =
-		useRuntimeConfig()
+	const {
+		CLOUD_NAME,
+		CLOUD_API_KEY,
+		CLOUD_API_SECRET,
+		CLOUD_UPLOAD_PRESET,
+		CLOUD_API,
+	} = useRuntimeConfig()
 	//
 	// Incoming
 	//
@@ -55,15 +60,12 @@
 				formData.append('upload_preset', CLOUD_UPLOAD_PRESET)
 
 				// Upload to cloudinary
-				const res = await fetch(
-					`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
-					{
-						method: 'POST',
-						body: formData,
-					}
-				)
+				const res = await fetch(`${CLOUD_API}/${CLOUD_NAME}/image/upload`, {
+					method: 'POST',
+					body: formData,
+				})
 
-				/* const res = await fetch('/images/upload', {
+				/* const res = await fetch('${MY_MEDIA_API}/images/upload', {
 					method: 'POST',
 					body: formData,
 					headers: {

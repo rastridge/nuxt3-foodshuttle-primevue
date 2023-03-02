@@ -61,7 +61,7 @@ export default defineNuxtConfig({
 			CLOUD_API: process.env.CLOUD_API,
 			CLOUD_API_SECRET: process.env.CLOUD_API_SECRET,
 			CLOUD_UPLOAD_PRESET: process.env.CLOUD_UPLOAD_PRESET,
-			MEDIA_API: process.env.MEDIA_API,
+			MY_MEDIA_API: process.env.MY_MEDIA_API,
 		},
 	},
 
