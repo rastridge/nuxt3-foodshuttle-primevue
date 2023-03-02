@@ -29,6 +29,7 @@
 		CLOUD_API_SECRET,
 		CLOUD_UPLOAD_PRESET,
 		CLOUD_API,
+		MY_MEDIA_API,
 	} = useRuntimeConfig()
 	//
 	// Incoming
@@ -57,9 +58,9 @@
 				const formData = new FormData()
 				// formData.append('photo', file)
 				formData.append('file', file)
-				formData.append('upload_preset', CLOUD_UPLOAD_PRESET)
+				/* 		formData.append('upload_preset', CLOUD_UPLOAD_PRESET)
 
-				/* // Upload to cloudinary
+				// Upload to cloudinary
 				const res = await fetch(`${CLOUD_API}/${CLOUD_NAME}/image/upload`, {
 					method: 'POST',
 					body: formData,
