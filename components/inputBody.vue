@@ -59,19 +59,19 @@
 				formData.append('file', file)
 				formData.append('upload_preset', CLOUD_UPLOAD_PRESET)
 
-				// Upload to cloudinary
+				/* // Upload to cloudinary
 				const res = await fetch(`${CLOUD_API}/${CLOUD_NAME}/image/upload`, {
 					method: 'POST',
 					body: formData,
-				})
+				}) */
 
-				/* const res = await fetch('${MY_MEDIA_API}/images/upload', {
+				const res = await fetch(`${MY_MEDIA_API}/images/upload`, {
 					method: 'POST',
 					body: formData,
 					headers: {
 						authorization: auth.user.token,
 					},
-				}) */
+				})
 
 				const data = await res.json()
 				return data.url
