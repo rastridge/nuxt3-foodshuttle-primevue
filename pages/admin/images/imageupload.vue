@@ -16,8 +16,8 @@
 			body.append('license', fileItem.file)
 		})
 
-		const res = await fetch('http://localhost:8080/images/upload', {
-			// const res = await fetch('https://media.my-test-site.net/images/upload', {
+		// const res = await fetch('http://localhost:8080/images/upload', {
+		const res = await fetch('https://media.my-test-site.net/images/upload', {
 			// const res = await fetch('https://httpbin.org/post', {
 			method: 'POST',
 			body: body,
@@ -31,8 +31,8 @@
 	}
 
 	const getFiles = async () => {
-		// const res = await fetch('http://media.my-test-site.net/files', {
-		const res = await fetch('http://localhost:8080/files', {
+		const res = await fetch('https://media.my-test-site.net/files', {
+			// const res = await fetch('http://localhost:8080/files', {
 			method: 'GET',
 		})
 		if (res.ok) {
@@ -45,7 +45,7 @@
 
 	const download = async () => {
 		// const res = await fetch(
-		// 	'http://media.my-test-site.net/files/1676908680063_sharped_1960_Ron_RonJr.jpeg',
+		// 	'https://media.my-test-site.net/files/1676908680063_sharped_1960_Ron_RonJr.jpeg',
 		const res = await fetch(
 			'http://localhost:8080/files/1676908680063_sharped_1960_Ron_RonJr.jpeg',
 			{
@@ -82,7 +82,7 @@
 			label="Drivers license"
 			name="license"
 			help="Please add a scan of your driver’s license"
-			accept=".jpg,.png,.pdf"
+			accept=".jpeg,.jpg,.png,.pdf"
 			validation="required"
 		/>
 	</FormKit>

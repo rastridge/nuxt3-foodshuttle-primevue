@@ -1,18 +1,16 @@
 <template>
-	<div class="editor m-1">
-		<quill-editor
-			contentType="html"
-			v-model:content="localfield"
-			toolbar="full"
-			:modules="modules"
-			@textChange="changeState()"
-		></quill-editor>
-		<!-- <quill-editor
-			contentType="html"
-			v-model:content="localfield"
-			toolbar="full"
-			@textChange="changeState()"
-		></quill-editor> -->
+	<div>
+		<button @click="getFiles">Get files</button>
+		fileinfo {{ fileinfo }}
+		<div class="editor m-1">
+			<quill-editor
+				contentType="html"
+				v-model:content="localfield"
+				toolbar="full"
+				:modules="modules"
+				@textChange="changeState()"
+			></quill-editor>
+		</div>
 	</div>
 </template>
 
@@ -60,51 +58,45 @@
 				formData.append('file', file)
 				/* 		formData.append('upload_preset', CLOUD_UPLOAD_PRESET)
 
-				// Upload to cloudinary
-				const res = await fetch(`${CLOUD_API}/${CLOUD_NAME}/image/upload`, {
-					method: 'POST',
-					body: formData,
-				}) */
+					// Upload to cloudinary
+					const res = await fetch(`${CLOUD_API}/${CLOUD_NAME}/image/upload`, {
+						method: 'POST',
+						body: formData,
+					}) */
 
-				const res = await fetch(`${MY_MEDIA_API}/images/upload`, {
-					method: 'POST',
-					body: formData,
-					headers: {
-						authorization: auth.user.token,
-					},
-				})
+				// const res = await fetch(`${MY_MEDIA_API}/images/upload`, {
+				const res = await fetch(
+					`https://media.my-test-site.net/images/upload`,
+					{
+						method: 'POST',
+						body: formData,
+						headers: {
+							authorization: auth.user.token,
+						},
+					}
+				)
 
 				const data = await res.json()
-				return data.url
+				return data.imageurl
 			},
 		},
 	}
-	/* 		const modules = [
-			{
-				name: 'blotFormatter',
-				module: BlotFormatter,
-				blotFormatter: {},
-			},
-			{
-				module: ImageUploader,
-				options: {
-					upload: async (file) => {
-						const formData = new FormData()
-						formData.append('photo', file)
 
-						const res = await fetch('/images/upload', {
-							method: 'POST',
-							body: formData,
-							headers: {
-								authorization: auth.user.token,
-							},
-						})
-						const data = await res.json()
-						return data.url
-					},
-				},
+	const fileinfo = ref('')
+
+	const getFiles = async () => {
+		const res = await fetch('https://media.my-test-site.net/files', {
+			method: 'GET',
+			headers: {
+				authorization: auth.user.token,
+				Accept: '*/*',
 			},
-		] */
+		})
+		/* 		if (res.ok) {
+			fileinfo.value = await res.json()
+		} */
+		fileinfo.value = await res.json()
+	}
 </script>
 
 <style scoped></style>
