@@ -61,12 +61,14 @@
 	import Card from 'primevue/card'
 	const { $dayjs } = useNuxtApp()
 	//
-	// Dialog initialization
+	// Dialog initialization - display news item
 	//
 	const selectedItem = ref({})
 	const displayModal = ref(false)
 	const openModal = (item) => {
 		displayModal.value = true
+		// replace img with img width="100%"
+		item.news_article = item.news_article.replace(/img/g, 'img width="100%"')
 		selectedItem.value = item
 	}
 	const closeModal = () => {

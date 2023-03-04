@@ -293,6 +293,11 @@ async function sendNewsletter({
 	// console.log('trackingpixel = ', TRACKINGPIXEL)
 
 	function composeEmail(recipient, newsletter_body_html, newsletter_subject) {
+		// make image respond to width
+		newsletter_body_html = newsletter_body_html.replace(
+			/img/g,
+			'img width="100%"'
+		)
 		const email = {
 			from: FROM,
 			fromName: FROM_NAME,

@@ -28,4 +28,9 @@
 			authorization: 'not-needed',
 		},
 	})
+	// make image respond to width
+	content_data.value.content_body = content_data.value.content_body.replace(
+		/img/g,
+		'img width="100%"'
+	)
 </script>
