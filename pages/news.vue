@@ -69,6 +69,7 @@
 		displayModal.value = true
 		// replace img with img width="100%"
 		item.news_article = item.news_article.replace(/img/g, 'img width="100%"')
+
 		selectedItem.value = item
 	}
 	const closeModal = () => {
@@ -91,7 +92,8 @@
 	})
 </script>
 
-<style scoped lang="css">
+<style>
+	@import '~~/assets/css/quill-adjust.css';
 	.p-dialog {
 		background-color: gray;
 	}
