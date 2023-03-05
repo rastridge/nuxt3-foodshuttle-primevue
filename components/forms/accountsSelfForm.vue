@@ -147,13 +147,11 @@
 
 <script setup>
 	import '@formkit/themes/genesis'
-
 	const { $dayjs } = useNuxtApp()
 	//
 	// outgoing
 	//
 	const emit = defineEmits(['submitted'])
-
 	//
 	// initialize form
 	//
